@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Página educativa sobre seguridad en redes sociales para la comunidad educativa: riesgos, consejos, qué hacer si te hackean la cuenta, grooming, ciberacoso y cómo denunciar.">
+<meta name="theme-color" content="#0b1020">
+<title>Redes Seguras | Seguridad en redes sociales</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🛡️%3C/text%3E%3C/svg%3E">
+
+<style>
+/* =========================================================
+   VARIABLES
+========================================================= */
+:root {
+    --fondo: #0b1020;
+    --fondo-2: #0f1730;
+    --superficie: #141d38;
+    --linea: #263153;
+    --texto: #e6eaf5;
+    --suave: #a3aec8;
+    --blanco: #ffffff;
+
+    --azul: #5b8def;
+    --azul-oscuro: #3b6fd4;
+    --turquesa: #2dd4bf;
+    --ambar: #fbbf24;
+    --rojo: #f87171;
+
+    --radio: 14px;
+    --ancho: 1120px;
+}
+
+/* =========================================================
+   BASE
+========================================================= */
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 84px;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.65;
+    font-size: 16px;
+}
+
+h1, h2, h3 { color: var(--blanco); line-height: 1.2; margin: 0; }
+p { margin: 0 0 12px; }
+a { color: inherit; }
+
+:focus-visible {
+    outline: 3px solid var(--turquesa);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+.contenedor {
+    max-width: var(--ancho);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.seccion { padding: 80px 0; }
+.seccion.alterna { background: var(--fondo-2); }
+
+.titulo {
+    max-width: 720px;
+    margin-bottom: 40px;
+}
+
+.titulo h2 {
+    font-size: clamp(28px, 4.5vw, 40px);
+    letter-spacing: -.5px;
+    margin-bottom: 12px;
+}
+
+.titulo p { color: var(--suave); font-size: 17px; }
+
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11,16,32,.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--linea);
+}
+
+.nav .contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 66px;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--blanco);
+}
+
+.marca-icono {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: var(--azul-oscuro);
+    font-size: 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--suave);
+    font-size: 14.5px;
+    font-weight: 600;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+}
+
+.nav-links a:hover { color: var(--blanco); border-color: var(--azul); }
+
+.menu-btn {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--linea);
+    color: var(--blanco);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* =========================================================
+   BOTONES
+========================================================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.btn:hover { background: var(--azul); }
+
+.btn.secundario {
+    background: transparent;
+    border-color: var(--linea);
+}
+
+.btn.secundario:hover { background: var(--superficie); }
+
+/* =========================================================
+   PORTADA
+========================================================= */
+.hero { padding: 110px 0 100px; }
+
+.hero .contenedor {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    align-items: center;
+}
+
+.hero-etiqueta {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid var(--linea);
+    border-radius: 999px;
+    color: var(--turquesa);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 6.5vw, 68px);
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span { display: block; color: var(--azul); }
+
+.hero-texto {
+    color: var(--suave);
+    font-size: 18px;
+    max-width: 560px;
+}
+
+.hero-botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.datos {
+    background: var(--superficie);
+    border: 1px solid var(--linea);
+    border-radius: 18px;
+    padding: 28px;
+}
+
+.datos h2 { font-size: 19px; margin-bottom: 18px; }
+
+.dato {
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding: 14px 0;
+    border-top: 1px solid var(--linea);
+}
+
+.dato:first-of-type { border-top: 0; padding-top: 0; }
+
+.dato strong {
+    font-size: 30px;
+    color: var(--ambar);
+    line-height: 1;
+}
+
+.dato span { color: var(--texto); font-size: 14.5px; line-height: 1.45; }
+
+.fuente {
+    color: var(--suave);
+    font-size: 12.5px;
+    margin: 14px 0 0;
+}
+
+/* =========================================================
+   COMPONENTES
+========================================================= */
+.rejilla { display: grid; gap: 18px; }
+.col-2 { grid-template-columns: repeat(2, 1fr); }
+.col-3 { grid-template-columns: repeat(3, 1fr); }
+.col-4 { grid-template-columns: repeat(4, 1fr); }
+
+.tarjeta {
+    background: var(--superficie);
+    border: 1px solid var(--linea);
+    border-radius: var(--radio);
+    padding: 26px;
+    transition: border-color .2s;
+}
+
+.tarjeta:hover { border-color: var(--azul); }
+
+.tarjeta h3 { font-size: 18px; margin-bottom: 8px; }
+.tarjeta p { color: var(--suave); font-size: 15px; margin: 0; }
+
+.icono { font-size: 28px; margin-bottom: 12px; display: block; }
+
+.tarjeta.riesgo { border-left: 4px solid var(--rojo); }
+.tarjeta.riesgo:hover { border-color: var(--rojo); }
+.tarjeta.riesgo h3 { color: #fecaca; }
+
+.red { text-align: center; }
+.red .icono { font-size: 38px; }
+
+.lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista li {
+    position: relative;
+    padding-left: 26px;
+    margin: 10px 0;
+    color: var(--suave);
+    font-size: 15.5px;
+}
+
+.lista li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--turquesa);
+    font-weight: 800;
+}
+
+.lista.alerta li::before { content: "!"; color: var(--ambar); }
+
+.bloque {
+    background: var(--superficie);
+    border: 1px solid var(--linea);
+    border-radius: var(--radio);
+    padding: 28px;
+}
+
+.bloque h3 { font-size: 20px; margin-bottom: 14px; }
+.bloque p { color: var(--suave); }
+
+.bloque.ambar { border-left: 4px solid var(--ambar); }
+.bloque.turquesa { border-left: 4px solid var(--turquesa); }
+
+/* Pasos numerados (secuencias reales) */
+.pasos {
+    list-style: none;
+    counter-reset: paso;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 14px;
+}
+
+.pasos li {
+    counter-increment: paso;
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 16px;
+    align-items: start;
+    background: var(--superficie);
+    border: 1px solid var(--linea);
+    border-radius: var(--radio);
+    padding: 18px 20px;
+}
+
+.pasos li::before {
+    content: counter(paso);
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.pasos strong { display: block; color: var(--blanco); margin-bottom: 2px; }
+.pasos span { color: var(--suave); font-size: 15px; }
+
+.pasos.urgente li::before { background: #b45309; }
+
+/* Consejos */
+.consejos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.consejo {
+    display: flex;
+    gap: 14px;
+    padding: 18px 20px;
+    border: 1px solid var(--linea);
+    border-radius: var(--radio);
+    background: var(--superficie);
+}
+
+.consejo .marca-check {
+    flex: 0 0 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(45,212,191,.15);
+    color: var(--turquesa);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.consejo strong { display: block; color: var(--blanco); margin-bottom: 2px; }
+.consejo span { color: var(--suave); font-size: 14.5px; }
+
+/* FAQ */
+.faq { display: grid; gap: 12px; max-width: 820px; }
+
+details {
+    background: var(--superficie);
+    border: 1px solid var(--linea);
+    border-radius: var(--radio);
+    padding: 16px 20px;
+}
+
+details[open] { border-color: var(--azul); }
+
+summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--blanco);
+}
+
+details p { color: var(--suave); margin: 12px 0 0; }
+
+/* Contactos */
+.contactos { margin-top: 28px; }
+
+.contactos p { margin-bottom: 8px; }
+
+.completar {
+    background: rgba(251,191,36,.15);
+    color: var(--ambar);
+    padding: 1px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.aviso { font-size: 14px; color: var(--suave); margin-top: 14px; }
+
+/* =========================================================
+   QUIZ
+========================================================= */
+.quiz-caja {
+    background: var(--superficie);
+    border: 1px solid var(--linea);
+    border-radius: 18px;
+    padding: 36px;
+    max-width: 820px;
+}
+
+fieldset.pregunta {
+    border: 0;
+    border-top: 1px solid var(--linea);
+    margin: 0;
+    padding: 22px 0;
+}
+
+fieldset.pregunta:first-of-type { border-top: 0; padding-top: 0; }
+
+legend {
+    font-weight: 700;
+    color: var(--blanco);
+    padding: 0;
+    margin-bottom: 12px;
+    font-size: 17px;
+}
+
+.opcion {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    margin: 8px 0;
+    border: 1px solid var(--linea);
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--texto);
+}
+
+.opcion:hover { background: rgba(91,141,239,.1); }
+.opcion input { margin-top: 5px; accent-color: var(--azul); }
+
+.opcion.correcta { border-color: var(--turquesa); background: rgba(45,212,191,.12); }
+.opcion.incorrecta { border-color: var(--rojo); background: rgba(248,113,113,.12); }
+
+.explicacion {
+    margin: 10px 0 0;
+    font-size: 14.5px;
+    color: var(--suave);
+}
+
+.explicacion.ok { color: #99f6e4; }
+.explicacion.mal { color: #fecaca; }
+
+.quiz-botones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+
+#resultado {
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--blanco);
+}
+
+/* =========================================================
+   CIERRE
+========================================================= */
+.cierre {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.cierre h2 { font-size: clamp(28px, 4.5vw, 40px); margin-bottom: 16px; }
+.cierre p { color: var(--suave); font-size: 17px; }
+.cierre .lema { color: var(--blanco); font-weight: 700; }
+
+footer {
+    border-top: 1px solid var(--linea);
+    background: #080c19;
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer h3 { margin-bottom: 8px; }
+footer p { color: var(--suave); font-size: 14px; margin-bottom: 4px; }
+
+.arriba {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 20px;
+    border: 1px solid var(--linea);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 960px) {
+    .hero .contenedor { grid-template-columns: 1fr; gap: 40px; }
+    .col-3, .col-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 820px) {
+    .menu-btn { display: inline-block; }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 66px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--fondo);
+        border-bottom: 1px solid var(--linea);
+        padding: 8px 24px 16px;
+    }
+
+    .nav-links.abierto { display: flex; }
+
+    .nav-links a {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--linea);
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .seccion { padding: 56px 0; }
+    .hero { padding: 48px 0 40px; }
+    .contenedor { padding: 0 18px; }
+    .col-2, .col-3, .col-4, .consejos { grid-template-columns: 1fr; }
+    .quiz-caja { padding: 22px 18px; }
+    .dato { grid-template-columns: 66px 1fr; }
+    .dato strong { font-size: 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVEGACIÓN
+===================================================== -->
+<header class="nav">
+<div class="contenedor">
+
+<a href="#inicio" class="marca">
+<span class="marca-icono" aria-hidden="true">🛡️</span>
+<span>Redes Seguras</span>
+</a>
+
+<button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuLinks">
+☰ Menú
+</button>
+
+<nav class="nav-links" id="menuLinks" aria-label="Principal">
+<a href="#inicio">Inicio</a>
+<a href="#proyecto">Proyecto</a>
+<a href="#riesgos">Riesgos</a>
+<a href="#tipos">Seguridad</a>
+<a href="#consejos">Consejos</a>
+<a href="#grooming">Grooming</a>
+<a href="#denuncia">Denunciar</a>
+<a href="#quiz">Quiz</a>
+</nav>
+
+</div>
+</header>
+
+<main>
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
+<section class="hero" id="inicio">
+<div class="contenedor">
+
+<div>
+<span class="hero-etiqueta">Proyecto escolar para la comunidad educativa</span>
+
+<h1>
+Seguridad en
+<span>Redes Sociales</span>
+</h1>
+
+<p class="hero-texto">
+Aprende a proteger tus cuentas, tu información personal y tu
+identidad digital. Y si algo sale mal, aprende qué hacer y a quién
+pedir ayuda.
+</p>
+
+<div class="hero-botones">
+<a href="#proyecto" class="btn">Conocer el proyecto</a>
+<a href="#consejos" class="btn secundario">Ver los 12 consejos</a>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     SOBRE EL PROYECTO
+===================================================== -->
+<section class="seccion alterna" id="proyecto">
+<div class="contenedor">
+
+<div class="titulo">
+<h2>¿Por qué hablar de seguridad en redes sociales?</h2>
+<p>
+Las redes sociales sirven para comunicarnos, estudiar y compartir.
+También pueden traer riesgos para la privacidad, las cuentas y las
+personas.
+</p>
+</div>
+
+<div class="rejilla col-2">
+
+<div class="bloque">
+<h3>📖 Introducción</h3>
+<p>
+Facebook, Instagram, TikTok y WhatsApp forman parte de la vida diaria
+de estudiantes, docentes y familias. Con ellas nos comunicamos,
+estudiamos, compartimos información y conocemos personas. Bien usadas,
+son una gran oportunidad para aprender y mantenernos conectados.
+</p>
+<p>
+Pero también traen riesgos: el robo de cuentas, las estafas, la
+suplantación de identidad, el ciberacoso y el contacto con personas mal
+intencionadas. Muchas personas manejan muy bien las aplicaciones, pero
+no conocen las opciones de privacidad que las protegen ni saben qué
+hacer cuando algo sale mal.
+</p>
+<p>
+Esta página reúne en un solo lugar información clara y práctica para
+reconocer esos riesgos, prevenirlos y actuar a tiempo. Usar las redes
+de forma segura no significa dejar de usarlas, sino aprender a hacerlo
+con responsabilidad.
+</p>
+</div>
+
+<div class="bloque turquesa">
+<h3>👥 ¿Para quién es esta página?</h3>
+<ul class="lista">
+<li><strong>Estudiantes:</strong> para proteger sus cuentas, cuidar su información y saber a quién pedir ayuda.</li>
+<li><strong>Docentes:</strong> como material de apoyo para conversar de seguridad digital en clase.</li>
+<li><strong>Padres y madres de familia:</strong> para acompañar mejor el uso que sus hijos hacen de las redes.</li>
+</ul>
+<p style="margin-top:14px;">
+Puedes recorrerla en orden o ir directo a lo que necesitas, desde el
+menú. Al final hay un quiz para comprobar lo que aprendiste.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     RIESGOS
+===================================================== -->
+<section class="seccion" id="riesgos">
+<div class="contenedor">
+
+<div class="titulo">
+<h2>Principales riesgos en las redes sociales</h2>
+<p>Conocer los riesgos es el primer paso para prevenirlos.</p>
+</div>
+
+<div class="rejilla col-3">
+
+<article class="tarjeta riesgo">
+<span class="icono" aria-hidden="true">🎣</span>
+<h3>Phishing</h3>
+<p>Engaño para obtener contraseñas, códigos o datos bancarios mediante mensajes, páginas o enlaces falsos.</p>
+</article>
+
+<article class="tarjeta riesgo">
+<span class="icono" aria-hidden="true">👤</span>
+<h3>Robo de identidad</h3>
+<p>Alguien obtiene tu información personal y la usa para hacerse pasar por ti.</p>
+</article>
+
+<article class="tarjeta riesgo">
+<span class="icono" aria-hidden="true">🚨</span>
+<h3>Cuentas falsas</h3>
+<p>Perfiles creados con el nombre o las fotos de otra persona para engañar a otros usuarios.</p>
+</article>
+
+<article class="tarjeta riesgo">
+<span class="icono" aria-hidden="true">💬</span>
+<h3>Ciberacoso</h3>
+<p>Uso de medios digitales para insultar, amenazar, humillar o acosar repetidamente a alguien.</p>
+</article>
+
+<article class="tarjeta riesgo">
+<span class="icono" aria-hidden="true">🧑‍💻</span>
+<h3>Grooming</h3>
+<p>Un adulto engaña a un menor por internet para ganarse su confianza y hacerle daño.</p>
+</article>
+
+<article class="tarjeta riesgo">
+<span class="icono" aria-hidden="true">🦠</span>
+<h3>Malware</h3>
+<p>Programas maliciosos que dañan dispositivos o roban información al instalar archivos o apps peligrosas.</p>
+</article>
+
+<article class="tarjeta riesgo">
+<span class="icono" aria-hidden="true">📍</span>
+<h3>Exposición de información</h3>
+<p>Publicar dirección, teléfono, ubicación o rutinas aumenta los riesgos para tu privacidad.</p>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     TIPOS DE SEGURIDAD
+===================================================== -->
+<section class="seccion alterna" id="tipos">
+<div class="contenedor">
+
+<div class="titulo">
+<h2>Tipos de seguridad en redes sociales</h2>
+<p>La seguridad digital tiene varias áreas que debemos cuidar al mismo tiempo.</p>
+</div>
+
+<div class="rejilla col-3">
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">🔐</span>
+<h3>Seguridad de contraseñas</h3>
+<p>Contraseñas únicas, largas y difíciles de adivinar reducen el riesgo de acceso no autorizado.</p>
+</article>
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">🔑</span>
+<h3>Autenticación en dos pasos</h3>
+<p>Añade una segunda forma de verificar tu identidad, con una aplicación o un código.</p>
+</article>
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">👁️</span>
+<h3>Privacidad</h3>
+<p>Te permite controlar quién ve tus publicaciones, tu información y tu contenido.</p>
+</article>
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">📱</span>
+<h3>Seguridad del dispositivo</h3>
+<p>Mantener el teléfono o la computadora actualizados y con bloqueo de pantalla protege tus datos.</p>
+</article>
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">🎣</span>
+<h3>Seguridad frente al phishing</h3>
+<p>Identificar mensajes, enlaces y páginas sospechosas antes de entregar información.</p>
+</article>
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">🧠</span>
+<h3>Educación digital</h3>
+<p>Conocer los riesgos ayuda a tomar mejores decisiones al usar internet.</p>
+</article>
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">🛡️</span>
+<h3>Protección de datos</h3>
+<p>Decide con cuidado qué información personal compartes y con quién.</p>
+</article>
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">🤝</span>
+<h3>Convivencia digital</h3>
+<p>El respeto, la empatía y la responsabilidad también son parte de la seguridad.</p>
+</article>
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">🌐</span>
+<h3>Uso responsable de internet</h3>
+<p>Evaluar la información, respetar a los demás y usar bien las herramientas digitales.</p>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     SEGÚN LA RED SOCIAL
+===================================================== -->
+<section class="seccion">
+<div class="contenedor">
+
+<div class="titulo">
+<h2>Seguridad según la red social</h2>
+<p>
+Cada plataforma tiene sus propias opciones de privacidad. Revísalas
+y úsalas.
+</p>
+</div>
+
+<div class="rejilla col-4">
+
+<article class="tarjeta red">
+<span class="icono" aria-hidden="true">📘</span>
+<h3>Facebook</h3>
+<p>Revisa quién puede ver tus publicaciones y limita la información personal visible públicamente.</p>
+</article>
+
+<article class="tarjeta red">
+<span class="icono" aria-hidden="true">📸</span>
+<h3>Instagram</h3>
+<p>Usa una cuenta privada y revisa quién puede enviarte mensajes o mencionarte.</p>
+</article>
+
+<article class="tarjeta red">
+<span class="icono" aria-hidden="true">🎵</span>
+<h3>TikTok</h3>
+<p>Controla quién puede comentar, escribirte o interactuar con tu contenido.</p>
+</article>
+
+<article class="tarjeta red">
+<span class="icono" aria-hidden="true">💚</span>
+<h3>WhatsApp</h3>
+<p>Nunca compartas códigos de registro y revisa quién puede ver tu información de perfil.</p>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     CONSEJOS
+===================================================== -->
+<section class="seccion alterna" id="consejos">
+<div class="contenedor">
+
+<div class="titulo">
+<h2>12 consejos para estar más seguro</h2>
+<p>Hábitos simples que reducen mucho el riesgo.</p>
+</div>
+
+<div class="consejos">
+
+<div class="consejo"><span class="marca-check" aria-hidden="true">✓</span>
+<div><strong>Usa contraseñas únicas</strong>
+<span>No uses la misma contraseña en todas tus cuentas.</span></div></div>
+
+<div class="consejo"><span class="marca-check" aria-hidden="true">✓</span>
+<div><strong>Activa la verificación en dos pasos</strong>
+<span>Añade una capa extra de protección.</span></div></div>
+
+<div class="consejo"><span class="marca-check" aria-hidden="true">✓</span>
+<div><strong>No compartas tus códigos</strong>
+<span>Los códigos de seguridad son personales.</span></div></div>
+
+<div class="consejo"><span class="marca-check" aria-hidden="true">✓</span>
+<div><strong>Revisa tu privacidad</strong>
+<span>Comprueba quién puede acceder a tu contenido.</span></div></div>
+
+<div class="consejo"><span class="marca-check" aria-hidden="true">✓</span>
+<div><strong>Piensa antes de publicar</strong>
+<span>Lo que publicas puede quedarse mucho tiempo en internet.</span></div></div>
+
+<div class="consejo"><span class="marca-check" aria-hidden="true">✓</span>
+<div><strong>No publiques tu ubicación</strong>
+<span>Evita compartir dónde estás en tiempo real.</span></div></div>
+
+<div class="consejo"><span class="marca-check" aria-hidden="true">✓</span>
+<div><strong>Desconfía de enlaces extraños</strong>
+<span>Comprueba el enlace antes de abrirlo.</span></div></div>
+
+<div class="consejo"><span class="marca-check" aria-hidden="true">✓</span>
+<div><strong>Mantén tus aplicaciones actualizadas</strong>
+<span>Las actualizaciones corrigen problemas de seguridad.</span></div></div>
+
+<div class="consejo"><span class="marca-check" aria-hidden="true">✓</span>
+<div><strong>No instales aplicaciones desconocidas</strong>
+<span>Descárgalas solo de fuentes confiables.</span></div></div>
+
+<div class="consejo"><span class="marca-check" aria-hidden="true">✓</span>
+<div><strong>Bloquea y reporta cuentas sospechosas</strong>
+<span>Usa las herramientas de seguridad de cada plataforma.</span></div></div>
+
+<div class="consejo"><span class="marca-check" aria-hidden="true">✓</span>
+<div><strong>Respeta a otras personas</strong>
+<span>La seguridad también incluye una buena convivencia digital.</span></div></div>
+
+<div class="consejo"><span class="marca-check" aria-hidden="true">✓</span>
+<div><strong>Pide ayuda cuando la necesites</strong>
+<span>Habla con un adulto de confianza, un docente o un familiar.</span></div></div>
+
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     PHISHING
+===================================================== -->
+<section class="seccion">
+<div class="contenedor">
+
+<div class="titulo">
+<h2>¿Cómo reconocer un intento de phishing?</h2>
+<p>Los estafadores buscan que actúes rápido y sin pensar.</p>
+</div>
+
+<div class="rejilla col-2">
+
+<div class="bloque ambar">
+<h3>🚩 Señales de alerta</h3>
+<ul class="lista alerta">
+<li>El mensaje genera miedo o urgencia.</li>
+<li>Pide una contraseña o un código.</li>
+<li>El enlace parece extraño.</li>
+<li>Promete premios inesperados.</li>
+<li>Tiene errores o datos sospechosos.</li>
+</ul>
+</div>
+
+<div class="bloque turquesa">
+<h3>🛡️ ¿Qué hacer?</h3>
+<ul class="lista">
+<li>No hagas clic de inmediato.</li>
+<li>No escribas tus datos.</li>
+<li>Verifica la información por otro medio.</li>
+<li>Elimina o reporta el mensaje.</li>
+<li>Si ya ingresaste datos, cambia tu contraseña.</li>
+</ul>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     CUENTA HACKEADA
+===================================================== -->
+<section class="seccion alterna" id="hackeada">
+<div class="contenedor">
+
+<div class="titulo">
+<h2>🚨 ¿Qué hacer si tu cuenta fue hackeada?</h2>
+<p>Si sospechas que alguien entró a tu cuenta, actúa rápido y en este orden.</p>
+</div>
+
+<ol class="pasos urgente">
+<li><div><strong>Cambia la contraseña</strong><span>Elige una nueva, larga y que no uses en otra cuenta.</span></div></li>
+<li><div><strong>Cierra las sesiones desconocidas</strong><span>Desde la configuración de seguridad, cierra todos los dispositivos que no reconozcas.</span></div></li>
+<li><div><strong>Activa la verificación en dos pasos</strong><span>Así, aunque alguien tenga tu contraseña, no podrá entrar.</span></div></li>
+<li><div><strong>Revisa tu información y tus dispositivos</strong><span>Comprueba tu correo, tu número de teléfono y las aplicaciones conectadas.</span></div></li>
+<li><div><strong>Reporta el problema a la plataforma</strong><span>Usa la opción de ayuda o de recuperación de cuenta de la red social.</span></div></li>
+</ol>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     HUELLA DIGITAL
+===================================================== -->
+<section class="seccion">
+<div class="contenedor">
+
+<div class="titulo">
+<h2>Tu huella digital</h2>
+<p>
+Es el conjunto de rastros que dejas cada vez que usas internet.
+</p>
+</div>
+
+<div class="rejilla col-2">
+
+<div class="bloque">
+<h3>👣 ¿Qué forma parte de ella?</h3>
+<ul class="lista">
+<li>Publicaciones.</li>
+<li>Fotografías y videos.</li>
+<li>Comentarios.</li>
+<li>Perfiles y nombres de usuario.</li>
+<li>Interacciones en plataformas.</li>
+</ul>
+</div>
+
+<div class="bloque">
+<h3>🧠 Antes de publicar, pregúntate</h3>
+<ul class="lista">
+<li>¿Es información privada?</li>
+<li>¿Podría perjudicarme después?</li>
+<li>¿Estoy exponiendo a otra persona?</li>
+<li>¿Realmente necesito publicarlo?</li>
+</ul>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     CIBERACOSO
+===================================================== -->
+<section class="seccion alterna" id="ciberacoso">
+<div class="contenedor">
+
+<div class="titulo">
+<h2>¿Qué hacer ante el ciberacoso?</h2>
+<p>Si te pasa a ti o ves que le pasa a un compañero, no te quedes callado.</p>
+</div>
+
+<div class="rejilla col-4">
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">🧊</span>
+<h3>No respondas con violencia</h3>
+<p>Los insultos pueden aumentar el conflicto. Mantén la calma y no sigas la discusión.</p>
+</article>
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">📸</span>
+<h3>Guarda evidencias</h3>
+<p>Conserva capturas de pantalla y mensajes. Te servirán para explicar lo ocurrido.</p>
+</article>
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">🚫</span>
+<h3>Bloquea y reporta</h3>
+<p>Usa las herramientas de bloqueo y denuncia de la plataforma.</p>
+</article>
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">🤝</span>
+<h3>Busca ayuda</h3>
+<p>Habla con un adulto de confianza, un docente o el responsable del colegio.</p>
+</article>
+
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     GROOMING
+===================================================== -->
+<section class="seccion" id="grooming">
+<div class="contenedor">
+
+<div class="titulo">
+<h2>Grooming: cuando un adulto engaña a un menor</h2>
+<p>
+Ocurre cuando un adulto se acerca a un niño, niña o adolescente por
+internet, muchas veces con un perfil falso, para ganarse su confianza
+y hacerle daño. Es un delito y nunca es culpa de la víctima.
+</p>
+</div>
+
+<div class="rejilla col-2">
+
+<div class="bloque ambar">
+<h3>🚩 Señales de alerta</h3>
+<ul class="lista alerta">
+<li>Una persona desconocida quiere ser tu amiga muy rápido.</li>
+<li>Dice tener tu edad, pero hay datos que no cuadran.</li>
+<li>Te pide guardar el secreto y no contarle a nadie.</li>
+<li>Te pide fotos o videos, o pasarse a un chat privado.</li>
+<li>Te ofrece regalos, dinero o recargas.</li>
+<li>Te presiona o te hace sentir culpable si no respondes.</li>
+</ul>
+</div>
+
+<div class="bloque turquesa">
+<h3>🛡️ ¿Qué hacer?</h3>
+<ul class="lista">
+<li>No respondas ni envíes fotos, videos o datos personales.</li>
+<li>Guarda capturas de pantalla y no borres la conversación.</li>
+<li>Bloquea y reporta la cuenta en la plataforma.</li>
+<li>Cuéntaselo hoy a un adulto de confianza: mamá, papá, un docente o el responsable del colegio.</li>
+<li>No hiciste nada malo. No tienes por qué sentir vergüenza.</li>
+</ul>
+</div>
+
+</div>
+
+<div class="bloque" style="margin-top:18px;">
+<h3>👨‍👩‍👧 Para padres y docentes</h3>
+<p>
+Conversen con los adolescentes sobre con quién hablan en internet, sin
+castigar ni juzgar, para que se animen a pedir ayuda. Revisen juntos
+la privacidad de sus cuentas y recuérdenles que nunca deben encontrarse
+a solas con alguien que solo conocen por internet.
+</p>
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     CÓMO DENUNCIAR
+===================================================== -->
+<section class="seccion alterna" id="denuncia">
+<div class="contenedor">
+
+<div class="titulo">
+<h2>📢 ¿Cómo denunciar un caso?</h2>
+<p>
+Si fuiste víctima de ciberacoso, robo de identidad, estafa o grooming,
+estos son los pasos.
+</p>
+</div>
+
+<ol class="pasos">
+<li><div><strong>Guarda las pruebas</strong><span>Capturas de pantalla, enlaces, nombres de usuario y fechas. No borres nada.</span></div></li>
+<li><div><strong>Cuéntalo a un adulto de confianza</strong><span>Mamá, papá, un familiar o un docente. No tienes que enfrentarlo solo.</span></div></li>
+<li><div><strong>Reporta la cuenta o el contenido</strong><span>Usa la opción de reportar de la plataforma y bloquea a la persona.</span></div></li>
+<li><div><strong>Avisa en tu colegio</strong><span>Habla con un docente o con la dirección para que puedan actuar y proteger a los afectados.</span></div></li>
+<li><div><strong>Presenta la denuncia</strong><span>Acude con tus pruebas y un adulto a una de las instituciones de abajo.</span></div></li>
+</ol>
+
+<div class="rejilla col-3" style="margin-top:28px;">
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">🧒</span>
+<h3>Defensoría de la Niñez y Adolescencia</h3>
+<p>Orienta y protege a niños, niñas y adolescentes, y recibe denuncias. Hay una en cada municipio.</p>
+</article>
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">👮</span>
+<h3>Policía (FELCC)</h3>
+<p>La Fuerza Especial de Lucha Contra el Crimen recibe denuncias de delitos, incluidos los cometidos por internet.</p>
+</article>
+
+<article class="tarjeta">
+<span class="icono" aria-hidden="true">⚖️</span>
+<h3>Ministerio Público</h3>
+<p>La Fiscalía investiga los delitos y puede iniciar un proceso a partir de una denuncia.</p>
+</article>
+
+</div>
+
+<div class="bloque contactos">
+<h3>📍 ¿A dónde acudir?</h3>
+<p>Defensoría de la Niñez y Adolescencia, en la alcaldía de tu municipio.</p>
+<p>La estación policial más cercana (Policía / FELCC).</p>
+<p class="aviso">Si hay peligro inmediato, pide ayuda a la Policía de inmediato o a un adulto cercano.</p>
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+<section class="seccion" id="faq">
+<div class="contenedor">
+
+<div class="titulo">
+<h2>Preguntas sobre seguridad digital</h2>
+</div>
+
+<div class="faq">
+
+<details>
+<summary>¿Es seguro aceptar solicitudes de personas desconocidas?</summary>
+<p>No es recomendable aceptarlas automáticamente. Es mejor comprobar quién es y por qué quiere contactarte.</p>
+</details>
+
+<details>
+<summary>¿Debo compartir mi contraseña con un amigo?</summary>
+<p>No. Las contraseñas son privadas. Una persona de confianza no necesita tu contraseña para demostrar amistad.</p>
+</details>
+
+<details>
+<summary>¿Qué hago si recibo un mensaje sospechoso?</summary>
+<p>No entregues información, no abras enlaces dudosos, verifica el contenido por otro medio y usa la opción de reporte de la plataforma.</p>
+</details>
+
+<details>
+<summary>¿Por qué es importante actualizar el teléfono?</summary>
+<p>Las actualizaciones incluyen correcciones de seguridad que ayudan a proteger el dispositivo.</p>
+</details>
+
+<details>
+<summary>¿Qué información debería evitar publicar?</summary>
+<p>Contraseñas, códigos, dirección exacta, documentos personales, información financiera y tu ubicación en tiempo real.</p>
+</details>
+
+<details>
+<summary>Un desconocido me pide fotos. ¿Qué hago?</summary>
+<p>No respondas ni envíes nada. Guarda capturas, bloquea y reporta la cuenta, y cuéntaselo hoy a un adulto de confianza. Mira la sección de grooming.</p>
+</details>
+
+</div>
+</div>
+</section>
+
+
+<!-- =====================================================
+     QUIZ
+===================================================== -->
+<section class="seccion alterna" id="quiz">
+<div class="contenedor">
+
+<div class="titulo">
+<h2>🧠 Pon a prueba tus conocimientos</h2>
+<p>Responde las 6 preguntas y comprueba tus respuestas.</p>
+</div>
+
+<div class="quiz-caja">
+
+<div id="preguntas"></div>
+
+<div class="quiz-botones">
+<button class="btn" id="btnComprobar" type="button">Comprobar respuestas</button>
+<button class="btn secundario" id="btnReiniciar" type="button">Volver a empezar</button>
+</div>
+
+<p id="resultado" role="status" aria-live="polite"></p>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     CIERRE
+===================================================== -->
+<section class="seccion">
+<div class="contenedor">
+
+<div class="cierre">
+<h2>La seguridad digital es responsabilidad de todos</h2>
+<p>
+Las redes sociales son parte de nuestra vida diaria. Aprender a usarlas
+con seguridad nos permite aprovechar sus beneficios y reducir sus riesgos.
+</p>
+<p class="lema">
+Piensa antes de publicar. Protege tus cuentas. Cuida tu información.
+Respeta a los demás. Y pide ayuda cuando la necesites.
+</p>
+</div>
+
+</div>
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer>
+<div class="contenedor">
+<h3>🛡️ Redes Seguras</h3>
+<p>Desarrollo de una página web sobre tipos de seguridad en redes sociales para la comunidad educativa.</p>
+<p>Unidad Educativa Nacional República del Brasil</p>
+<p>© 2026 · Proyecto escolar de Técnico Medio en Sistemas Informáticos</p>
+</div>
+</footer>
+
+<a href="#inicio" class="arriba" aria-label="Volver arriba">↑</a>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+<script>
+
+/* ---------- Menú en celular ---------- */
+const menuBtn = document.getElementById("menuBtn");
+const menuLinks = document.getElementById("menuLinks");
+
+menuBtn.addEventListener("click", function () {
+    const abierto = menuLinks.classList.toggle("abierto");
+    menuBtn.setAttribute("aria-expanded", abierto ? "true" : "false");
+});
+
+menuLinks.querySelectorAll("a").forEach(function (enlace) {
+    enlace.addEventListener("click", function () {
+        menuLinks.classList.remove("abierto");
+        menuBtn.setAttribute("aria-expanded", "false");
+    });
+});
+
+
+/* ---------- Quiz ---------- */
+const preguntas = [
+    {
+        texto: "¿Cuál es una contraseña más segura?",
+        opciones: [
+            "123456",
+            "Una frase larga y única, con letras, números y símbolos",
+            "El nombre de mi mascota"
+        ],
+        correcta: 1,
+        explicacion: "Cuanto más larga y única sea, más difícil es adivinarla. Y no la repitas en otras cuentas."
+    },
+    {
+        texto: "¿Qué debes hacer con un código de verificación?",
+        opciones: [
+            "Mantenerlo privado: nadie debe pedírtelo",
+            "Dárselo a quien dice ser de soporte técnico",
+            "Compartirlo con un amigo"
+        ],
+        correcta: 0,
+        explicacion: "Si alguien te pide el código, es un intento de robarte la cuenta."
+    },
+    {
+        texto: "¿Qué haces ante un enlace sospechoso?",
+        opciones: [
+            "Lo abro para ver qué es",
+            "Lo verifico por otro medio antes de abrirlo",
+            "Lo reenvío a mis contactos"
+        ],
+        correcta: 1,
+        explicacion: "Abrirlo o reenviarlo puede poner en riesgo tu cuenta y la de tus contactos."
+    },
+    {
+        texto: "¿Qué es el ciberacoso?",
+        opciones: [
+            "Aprender a usar una computadora",
+            "Insultar, amenazar o humillar repetidamente por medios digitales",
+            "Usar redes sociales por la noche"
+        ],
+        correcta: 1,
+        explicacion: "Es el acoso que se hace por medios digitales y puede afectar mucho a la víctima."
+    },
+    {
+        texto: "¿Qué ayuda a proteger mejor una cuenta?",
+        opciones: [
+            "Compartir la contraseña con mis amigos",
+            "Usar la misma contraseña en todo",
+            "Activar la verificación en dos pasos"
+        ],
+        correcta: 2,
+        explicacion: "Aunque alguien tenga tu contraseña, necesitará además un segundo código para entrar."
+    },
+    {
+        texto: "Un desconocido te pide fotos por chat. ¿Qué haces?",
+        opciones: [
+            "Se las envío si parece amable",
+            "No respondo, guardo capturas, bloqueo y aviso a un adulto de confianza",
+            "Contesto para que deje de insistir"
+        ],
+        correcta: 1,
+        explicacion: "Puede ser un caso de grooming. Pedir ayuda a tiempo protege a la persona."
+    }
+];
+
+const contenedor = document.getElementById("preguntas");
+const resultado = document.getElementById("resultado");
+
+function dibujarQuiz() {
+    contenedor.innerHTML = "";
+    resultado.textContent = "";
+
+    preguntas.forEach(function (p, i) {
+        const campo = document.createElement("fieldset");
+        campo.className = "pregunta";
+
+        const leyenda = document.createElement("legend");
+        leyenda.textContent = (i + 1) + ". " + p.texto;
+        campo.appendChild(leyenda);
+
+        p.opciones.forEach(function (op, j) {
+            const etiqueta = document.createElement("label");
+            etiqueta.className = "opcion";
+
+            const radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = "q" + i;
+            radio.value = j;
+
+            etiqueta.appendChild(radio);
+            etiqueta.appendChild(document.createTextNode(op));
+            campo.appendChild(etiqueta);
+        });
+
+        const nota = document.createElement("p");
+        nota.className = "explicacion";
+        nota.id = "nota" + i;
+        campo.appendChild(nota);
+
+        contenedor.appendChild(campo);
+    });
+}
+
+function comprobar() {
+    let puntos = 0;
+    let sinResponder = 0;
+
+    preguntas.forEach(function (p, i) {
+        const marcada = document.querySelector('input[name="q' + i + '"]:checked');
+        const nota = document.getElementById("nota" + i);
+        const opciones = document.querySelectorAll('input[name="q' + i + '"]');
+
+        opciones.forEach(function (o) {
+            o.parentElement.classList.remove("correcta", "incorrecta");
+        });
+
+        nota.className = "explicacion";
+
+        if (!marcada) {
+            sinResponder++;
+            nota.textContent = "Falta responder esta pregunta.";
+            return;
+        }
+
+        const eleccion = Number(marcada.value);
+
+        if (eleccion === p.correcta) {
+            puntos++;
+            marcada.parentElement.classList.add("correcta");
+            nota.classList.add("ok");
+            nota.textContent = "Correcto. " + p.explicacion;
+        } else {
+            marcada.parentElement.classList.add("incorrecta");
+            opciones[p.correcta].parentElement.classList.add("correcta");
+            nota.classList.add("mal");
+            nota.textContent = "No es esa. " + p.explicacion;
+        }
+    });
+
+    if (sinResponder > 0) {
+        resultado.textContent =
+            "Te faltan " + sinResponder + " pregunta(s) por responder. Tu puntaje parcial es " +
+            puntos + "/" + preguntas.length + ".";
+        return;
+    }
+
+    if (puntos === preguntas.length) {
+        resultado.textContent = "🎉 ¡Excelente! Obtuviste " + puntos + "/" + preguntas.length +
+            ". Tienes muy buenos conocimientos de seguridad digital.";
+    } else if (puntos >= 4) {
+        resultado.textContent = "👏 ¡Muy bien! Obtuviste " + puntos + "/" + preguntas.length +
+            ". Repasa los temas que fallaste.";
+    } else {
+        resultado.textContent = "📚 Obtuviste " + puntos + "/" + preguntas.length +
+            ". Te recomendamos revisar los consejos y volver a intentarlo.";
+    }
+}
+
+document.getElementById("btnComprobar").addEventListener("click", comprobar);
+document.getElementById("btnReiniciar").addEventListener("click", dibujarQuiz);
+
+dibujarQuiz();
+
+</script>
+
+</body>
+</html>
